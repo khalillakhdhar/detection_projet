@@ -1,0 +1,65 @@
+<div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 align="center" >Gestion des detection<br>
+        
+          <span align="center" *ngIf="fb!=''" ><img height="100" width="100" [src]="fb"></span>
+
+        </h3>
+        <form action="">
+          <table class="table table-borderless">
+<tr><td>fichier</td><td><input type="file"  (change)="onFileSelected($event)" [(ngModel)]="cours.url" class="form-control" name="f"></td></tr>
+<tr><td>Detection</td><td><input type="text" [(ngModel)]="cours.detection" class="form-control" name="matiere"></td></tr>
+<tr><td>description</td><td><textarea name="description" [(ngModel)]="cours.description" class="form-control"></textarea></td></tr>
+<tr><td>classiffication</td><td><input type="text" [(ngModel)]="cours.classe" class="form-control" name="classe"></td></tr>
+<!--tr><td colspan="2"><button class="btn btn-primary" (click)="add()">Ajouter</button></td></tr-->
+
+
+
+
+        </table></form>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
+
+        <table id="example2" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Description</th>
+            <th>date de detection</th>
+            <th>classification</th>
+
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cr of courses  |   LockFilter: query |   paginate: { itemsPerPage: 10, currentPage: p }">
+            <td>{{cr.description}}</td>
+            <td>{{cr.date_heure | date:'medium'}}
+            </td>
+       
+           
+            <td>
+              <img src="{{cr.url}}" height="100" width="100">
+            </td>
+            <td><button (click)="delete(cr.id)" class="btn btn-danger">Supprimer</button></td>
+          </tr>
+        
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Description</th>
+            <th>date ajout</th>
+            <th>classe</th>
+         
+
+            <th>Action</th>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>

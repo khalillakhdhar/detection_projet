@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>inscription</title>
+
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href=""><b>PFE</b>ISET</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Créer votre compte</p>
+
+      <form  method="post">
+        <div class="input-group mb-3">
+          <input type="text" [(ngModel)]="user.nom"  name="nom" class="form-control" placeholder="Nom">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="prenom" [(ngModel)]="user.prenom" class="form-control" placeholder="prenom">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" name="age" [(ngModel)]="user.age" class="form-control" placeholder="age">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" [(ngModel)]="user.mdp" placeholder="mot de passe">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <textarea class="form-control"  [(ngModel)]="user.adresse" name="adresse" placeholder="Adresse"></textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-globe"></span>
+            </div>
+          </div>
+        </div>
+       
+        <div class="row">
+         
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" (click)="add()" class="btn btn-primary btn-block">S'inscrire</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+   
+
+      <a routerLink="/" class="text-center">Déjà membre?</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="../../assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../assets/dist/js/adminlte.min.js"></script>
+</body>
+</html>

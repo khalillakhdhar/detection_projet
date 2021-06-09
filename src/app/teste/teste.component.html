@@ -1,0 +1,61 @@
+<div class="row">
+    <div *ngFor="let stre of streamings" class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h3>{{stre.titre}}</h3>
+
+          <p>{{stre.classe}} /  {{stre.date | date:'medium'}} </p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-camera"></i>
+        </div>
+        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+   
+    <!-- ./col -->
+  </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Créer un streaming
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+      
+        <form>
+            <div class="mb-3">
+              <label for="titre" class="form-label">Titre</label>
+              <input type="text" class="form-control" name="titre" [(ngModel)]="streaming.titre" id="titre" >
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Date</label>
+              <input type="datetime-local" name="date" [(ngModel)]="streaming.date" class="form-control" id="date">
+            </div>
+            <div class="mb-3">
+                <label for="classe" class="form-label">classe</label>
+                <input type="text" class="form-control" name="classe" [(ngModel)]="streaming.classe" id="classe" >
+              </div>
+            <button type="submit" (click)="add()" class="btn btn-primary">Submit</button>
+          </form>
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<p>Séance actuelle en diffusion</p>
+<iframe src="http://192.168.1.3:8080/" seamless width="100%" height="600"></iframe>

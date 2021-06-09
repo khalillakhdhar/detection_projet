@@ -1,0 +1,55 @@
+<div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Gestion des utilisateurs</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
+
+        <table id="example2" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Grade</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let u of users |   LockFilter: query |   paginate: { itemsPerPage: 3, currentPage: p } ">
+            <td>{{u.nom}}</td>
+            <td>{{u.prenom}}
+            </td>
+            <td>{{u.age}}</td>
+            <td> {{u.email}}</td>
+            <td>{{u.adresse}}</td>
+            <td> <span class="label label-success" >{{u.grade}}</span></td>
+            <td><button class="btn btn-danger"
+              >Supprimer</button></td>
+          </tr>
+        
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Grade</th>
+            <th>Action</th>
+          </tr>
+          </tfoot>
+
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
