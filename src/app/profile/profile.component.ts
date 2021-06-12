@@ -73,8 +73,9 @@ this.id=localStorage.getItem("id");
   {
     this.user.classe="ND";
     this.user.specialite="ND";
-    
+    this.user.grade=localStorage.getItem("grade");
     let us=Object.assign({},this.user);
+    
     this.userService.update_User(this.user.id,us);
     alert("modifié");
 
