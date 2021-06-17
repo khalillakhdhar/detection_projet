@@ -22,6 +22,7 @@ userData: any; // Save logged in user data
 cuse: any;
 public query: any = '';
 p: number = 1;
+datas=0;
   constructor(private coursService:CoursService,  private storage: AngularFireStorage,
     public afs: AngularFirestore, // Inject Firestore service
     ) { }
@@ -48,7 +49,8 @@ p: number = 1;
   
         };
       });
-      console.log(this.courses);   });
+      console.log(this.courses); 
+    this.datas=this.courses.length;  });
   
   
   }
